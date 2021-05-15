@@ -47,4 +47,114 @@ InvokerHandler：接口只有一个方法
 
 ```java
 Sub instance = (Sub) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{Sub.class}, new SubInvokerHandler(() -> {}));
+
+
+public final class $Proxy0 extends Proxy implements Sub {
+    private static Method m1;
+    private static Method m6;
+    private static Method m3;
+    private static Method m4;
+    private static Method m2;
+    private static Method m5;
+    private static Method m0;
+
+    public $Proxy0(InvocationHandler var1) throws  {
+        super(var1);
+    }
+
+    public final boolean equals(Object var1) throws  {
+        try {
+            return (Boolean)super.h.invoke(this, m1, new Object[]{var1});
+        } catch (RuntimeException | Error var3) {
+            throw var3;
+        } catch (Throwable var4) {
+            throw new UndeclaredThrowableException(var4);
+        }
+    }
+
+    public final void run() throws  {
+        try {
+            super.h.invoke(this, m6, (Object[])null);
+        } catch (RuntimeException | Error var2) {
+            throw var2;
+        } catch (Throwable var3) {
+            throw new UndeclaredThrowableException(var3);
+        }
+    }
+
+    public final String hello(String var1, String var2) throws  {
+        try {
+            return (String)super.h.invoke(this, m3, new Object[]{var1, var2});
+        } catch (RuntimeException | Error var4) {
+            throw var4;
+        } catch (Throwable var5) {
+            throw new UndeclaredThrowableException(var5);
+        }
+    }
+
+    public final String hello() throws  {
+        try {
+            return (String)super.h.invoke(this, m4, (Object[])null);
+        } catch (RuntimeException | Error var2) {
+            throw var2;
+        } catch (Throwable var3) {
+            throw new UndeclaredThrowableException(var3);
+        }
+    }
+
+    public final String toString() throws  {
+        try {
+            return (String)super.h.invoke(this, m2, (Object[])null);
+        } catch (RuntimeException | Error var2) {
+            throw var2;
+        } catch (Throwable var3) {
+            throw new UndeclaredThrowableException(var3);
+        }
+    }
+
+    public final String hello(String var1) throws  {
+        try {
+            return (String)super.h.invoke(this, m5, new Object[]{var1});
+        } catch (RuntimeException | Error var3) {
+            throw var3;
+        } catch (Throwable var4) {
+            throw new UndeclaredThrowableException(var4);
+        }
+    }
+
+    public final int hashCode() throws  {
+        try {
+            return (Integer)super.h.invoke(this, m0, (Object[])null);
+        } catch (RuntimeException | Error var2) {
+            throw var2;
+        } catch (Throwable var3) {
+            throw new UndeclaredThrowableException(var3);
+        }
+    }
+
+    static {
+        try {
+            m1 = Class.forName("java.lang.Object").getMethod("equals", Class.forName("java.lang.Object"));
+            m6 = Class.forName("org.lfxu.test.proxy.Sub").getMethod("run");
+            m3 = Class.forName("org.lfxu.test.proxy.Sub").getMethod("hello", Class.forName("java.lang.String"), Class.forName("java.lang.String"));
+            m4 = Class.forName("org.lfxu.test.proxy.Sub").getMethod("hello");
+            m2 = Class.forName("java.lang.Object").getMethod("toString");
+            m5 = Class.forName("org.lfxu.test.proxy.Sub").getMethod("hello", Class.forName("java.lang.String"));
+            m0 = Class.forName("java.lang.Object").getMethod("hashCode");
+        } catch (NoSuchMethodException var2) {
+            throw new NoSuchMethodError(var2.getMessage());
+        } catch (ClassNotFoundException var3) {
+            throw new NoClassDefFoundError(var3.getMessage());
+        }
+    }
+}
+
 ```
+
+## 国际化
+
+java 的国际化可以使用 Locale 和 ResourceBundle 来进行资源的管理。Locale 中定义长用的地区配置，而 ResourceBundle 在进行资源的加载时可以通过传入的 Locale 对象来进行动态的资源加载。
+
+## JAVA SE 事件
+
+java 的事件通过 EventObject 和 EventListener 来实现。
