@@ -26,6 +26,16 @@ BeanFactoryPostProcessor 接口定义的实现可以在容器的启动阶段对 
 
 BeanPostProcessor 接口定义的实现可以在对象实例化的阶段对 Bean 做一些业务的扩展，由于实现类可以有多个对于有执行先后顺序的类可以实现 Ordered 接口来确定执行的顺序优先级。在 Spring 中提供了一些内置的实现类来实现一些特殊的业务处理。
 
+**BeanPostProcessor**
+
+- org.springframework.beans.factory.config.BeanPostProcessor#postProcessBeforeInitialization
+
+对所有的单例bean对象，在任何 bean 初始化回调（如 InitializingBeanafterPropertiesSet 或自定义 init-method）之前，将此 BeanPostProcessor 应用于给定的新 bean 实例。
+
+- org.springframework.beans.factory.config.BeanPostProcessor#postProcessAfterInitialization
+
+对所有的单例bean对象，在任何 bean 初始化回调（如 InitializingBeanafterPropertiesSet 或自定义 init-method）之后，将此 BeanPostProcessor 应用于给定的新 bean 实例。
+
 ### InstantiationAwareBeanPostProcessor
 
 该 Processor 与其它类型 BeanPostProcessor 的接口类型实现不同，它在实例话 Bean 对象之前进行调用。如果当前的 BeanDefinition 能通过该 Processor 进行实例化对象，则直接返回该实例化后的对象不在走后续的流程。
