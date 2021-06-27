@@ -1,3 +1,5 @@
+![](img/initFlow.png)
+
 ## BeanFactoryPostProcessor
 
 BeanFactoryPostProcessor 接口定义的实现可以在容器的启动阶段对 BeanDefinition 的保存数据做一些修改，由于实现类可以有多个对于有执行先后顺序的类可以实现 Ordered 接口来确定执行的顺序优先级。在 Spring 中提供了一些内置的实现类来实现一些特殊的业务处理。
@@ -26,15 +28,17 @@ BeanFactoryPostProcessor 接口定义的实现可以在容器的启动阶段对 
 
 BeanPostProcessor 接口定义的实现可以在对象实例化的阶段对 Bean 做一些业务的扩展，由于实现类可以有多个对于有执行先后顺序的类可以实现 Ordered 接口来确定执行的顺序优先级。在 Spring 中提供了一些内置的实现类来实现一些特殊的业务处理。
 
+被 BeanPostProcessor 依赖的 Bean 不会被执行 BeanPostProcessor 的流程，应该在初始化 BeanPostProcessor 的 Bean 时被依赖的 Bean 也会被初始化完成。此时 BeanPostProcessor 还未被初始化完成
+
 **BeanPostProcessor**
 
 - org.springframework.beans.factory.config.BeanPostProcessor#postProcessBeforeInitialization
 
-对所有的单例bean对象，在任何 bean 初始化回调（如 InitializingBeanafterPropertiesSet 或自定义 init-method）之前，将此 BeanPostProcessor 应用于给定的新 bean 实例。
+对所有的单例 bean 对象，在任何 bean 初始化回调（如 InitializingBeanafterPropertiesSet 或自定义 init-method）之前，将此 BeanPostProcessor 应用于给定的新 bean 实例。
 
 - org.springframework.beans.factory.config.BeanPostProcessor#postProcessAfterInitialization
 
-对所有的单例bean对象，在任何 bean 初始化回调（如 InitializingBeanafterPropertiesSet 或自定义 init-method）之后，将此 BeanPostProcessor 应用于给定的新 bean 实例。
+对所有的单例 bean 对象，在任何 bean 初始化回调（如 InitializingBeanafterPropertiesSet 或自定义 init-method）之后，将此 BeanPostProcessor 应用于给定的新 bean 实例。
 
 ### InstantiationAwareBeanPostProcessor
 
